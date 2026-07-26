@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>জারা</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffe0f0, #d9f2ff);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 360px;
+  }
+  .doll {
+    font-size: 100px;
+    animation: bounce 2s infinite ease-in-out;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  h1 {
+    color: #d63384;
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  .buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+  button:hover {
+    transform: scale(1.08);
+  }
+  .good {
+    background: #4caf50;
+    color: white;
+  }
+  .bad {
+    background: #f44336;
+    color: white;
+  }
+  #response {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    min-height: 30px;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="doll" id="dollFace">🧸</div>
+  <h1>কেমন আছো জারা?</h1>
+  <div class="buttons" id="buttonBox">
+    <button class="good" onclick="respond('good')">ভালো</button>
+    <button class="bad" onclick="respond('bad')">খারাপ</button>
+  </div>
+  <div id="response"></div>
+</div>
+
+<script>
+  function respond(mood) {
+    const responseDiv = document.getElementById('response');
+    const doll = document.getElementById('dollFace');
+    const buttonBox = document.getElementById('buttonBox');
+    buttonBox.style.display = 'none';
+    if (mood === 'good') {
+      responseDiv.textContent = "শুনে অনেক খুশি হলাম! আজকের দিনটা তোমার জন্য সুন্দর হোক 🌸";
+      doll.textContent = "🧸😊";
+    } else {
+      responseDiv.textContent = "মন খারাপ করো না, সব ঠিক হয়ে যাবে। আমি তোমার পাশে আছি 💛";
+      doll.textContent = "🧸🥺";
+    }
+  }
+</script>
+
+</body>
+</html>
